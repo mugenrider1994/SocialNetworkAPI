@@ -1,4 +1,4 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const reactionSchema = new Schema(
   {
@@ -25,13 +25,20 @@ const reactionSchema = new Schema(
       getters: true,
     },
     id: false,
+  },
+  {
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    // using the .toISOString for the date formatting
+    get: createdAtVal => createdAtVal.toISOString()
+  }
   }
 );
 
 
-reactionSchema.virtual('formatCreatedAt').get(function () {
-  return this.createdAt.toLocaleDateString();
-});
+
+const Reaction = model('Reaction', reactionSchema)
 
 
 module.exports = Reaction;
