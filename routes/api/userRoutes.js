@@ -5,7 +5,7 @@ const {
   createUser,
   updateUser,
   deleteUser,
-} = require('../../../../../../../nosql18/controllers/userController.js');
+} = require('../controllers/userController');
 
 // /api/users
 router.route('/').get(getUsers).post(createUser);

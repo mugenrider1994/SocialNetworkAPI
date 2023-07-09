@@ -11,7 +11,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trimmed: true,
+      trim: true,
     },
     email: {
       type: String,
@@ -38,7 +38,7 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.virtual('thoughtCount').get(function(){
+userSchema.virtual('friendCount').get(function(){
   return this.thoughts.length
 })
 

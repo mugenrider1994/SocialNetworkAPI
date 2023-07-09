@@ -9,15 +9,15 @@ const reactionSchema = new Schema(
     reactionBody: {
       type: String,
       required: true,
-      maxlength: 280,
+      maxlength: 280
     },
     username: {
       type: String,
-      required: true,
+      required: true
     },
     createdAt: {
       type: Date,
-      default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
+      default: Date.now
     },
   },
   {
@@ -28,4 +28,10 @@ const reactionSchema = new Schema(
   }
 );
 
-module.exports = reactionSchema;
+
+reactionSchema.virtual('formatCreatedAt').get(function () {
+  return this.createdAt.toLocaleDateString();
+});
+
+
+module.exports = Reaction;
