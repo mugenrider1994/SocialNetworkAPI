@@ -17,21 +17,9 @@ const reactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now
-    },
-  },
-  {
-    toJSON: {
-      getters: true,
-    },
-    id: false,
-  },
-  {
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    // using the .toISOString for the date formatting
-    get: createdAtVal => createdAtVal.toISOString()
+      default: Date.now,
+      // using the .toISOString for the date formatting
+      get: createdAtVal => createdAtVal.toISOString()
   }
   }
 );

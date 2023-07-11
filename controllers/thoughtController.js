@@ -1,3 +1,7 @@
+const Thought = require('../models/Thought.js');
+const User = require('../models/User.js');
+
+
 const getThoughts = async (req, res) => {
   try {
     const thoughts = await Thought.find();
