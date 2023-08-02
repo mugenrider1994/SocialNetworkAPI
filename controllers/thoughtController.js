@@ -1,7 +1,7 @@
 const Thought = require('../models/Thought.js');
 const User = require('../models/User.js');
 
-
+// Get all thoughts
 const getThoughts = async (req, res) => {
   try {
     const thoughts = await Thought.find();
@@ -12,6 +12,7 @@ const getThoughts = async (req, res) => {
   }
 };
 
+// Get a single thought by its ID
 const getSingleThought = async (req, res) => {
   try {
     const thought = await Thought.findById(req.params.thoughtId);
@@ -25,6 +26,7 @@ const getSingleThought = async (req, res) => {
   }
 };
 
+// Create a new thought
 const createThought = async (req, res) => {
   try {
     const { thoughtText, username, userId } = req.body;
@@ -43,6 +45,7 @@ const createThought = async (req, res) => {
   }
 };
 
+// Update an existing thought by its ID
 const updateThought = async (req, res) => {
   try {
     const thought = await Thought.findByIdAndUpdate(
@@ -60,6 +63,7 @@ const updateThought = async (req, res) => {
   }
 };
 
+// Delete a thought by its ID
 const deleteThought = async (req, res) => {
   try {
     const thought = await Thought.findByIdAndDelete(req.params.thoughtId);
@@ -76,6 +80,7 @@ const deleteThought = async (req, res) => {
   }
 };
 
+// Add a reaction to a thought
 const addReaction = async (req, res) => {
   try {
     const { reactionBody, username } = req.body;
